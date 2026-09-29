@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <job>
+      <id>10</id>
+      <size>1</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-09-29 03:20:21.542731+00:00</created>
+      <updated>2026-09-29 03:39:16.257635+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>0</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>10</id>
+          <start>0</start>
+          <stop>0</stop>
+          <url>http://localhost:8080/api/jobs/10/dataset/export/api/jobs/10</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>FN2187</username>
+        <email>soadbp839@gmail.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>parking_line</name>
+          <color>#ffcc00</color>
+          <type>any</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>free_space</name>
+          <color>#35c98b</color>
+          <type>any</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </job>
+    <dumped>2026-09-29 03:40:24.417287+00:00</dumped>
+  </meta>
+  <image id="0" name="parking-lot-core.jpg" width="960" height="720">
+    <polygon label="free_space" source="manual" occluded="0" points="0.00,576.62;960.00,528.23;960.00,592.00;0.00,683.30" z_order="0">
+    </polygon>
+    <polyline label="parking_line" source="manual" occluded="0" points="27.50,682.82;24.75,720.00" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="406.20,651.30;525.74,720.00" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="695.56,622.97;960.00,683.94" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="922.54,597.62;959.20,602.40" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="59.38,521.81;48.03,573.21" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="170.70,519.92;247.96,564.07" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="276.82,517.24;419.98,554.76" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="391.60,517.10;576.40,544.67" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="490.23,513.95;714.62,536.75" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="0.21,542.34;943.78,508.28" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="65.66,498.70;61.77,509.89" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="133.74,499.17;148.46,507.53" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="200.75,497.76;230.89,505.53" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="273.07,497.52;308.52,503.88" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="344.56,496.11;385.43,501.41" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="414.76,495.87;457.51,500.11" z_order="0">
+    </polyline>
+    <polyline label="parking_line" source="manual" occluded="0" points="558.00,508.20;832.79,529.97" z_order="0">
+    </polyline>
+    <polygon label="free_space" source="manual" occluded="0" points="0.00,511.40;960.00,489.50;960.00,497.22;0.00,523.00" z_order="0">
+    </polygon>
+    <polyline label="parking_line" source="manual" occluded="0" points="474.01,495.01;499.55,497.02" z_order="0">
+    </polyline>
+  </image>
+</annotations>

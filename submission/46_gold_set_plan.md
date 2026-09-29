@@ -1,18 +1,14 @@
 # Đề xuất gold set theo camera — tình huống giả lập
 
-**Đầu bài:** 50.000 frame từ bốn camera SVM, ngân sách chọn 200 frame để review/gold. Đây là tình huống trên slide,
-**không phải** 50.000 frame có trong repo. Phân bổ đúng 200 ở `45_sampling_plan.csv` cho bốn camera, mỗi camera có
-normal và hard slice. “Gold set” ở đây là **kế hoạch tạo** reference sau kiểm chứng, không phải teaching reference
-ADASIND hoặc nhãn bạn vừa vẽ. Nếu cần, dùng `notebooks/day11-svm360-colab.ipynb` để thử tổng phân bổ; notebook
-không làm thay phần lý do.
+**Đầu bài:** 50.000 frame từ bốn camera SVM, ngân sách chọn 200 frame để review/gold. Đây là tình huống trên slide, **không phải** 50.000 frame có trong repo. Phân bổ đúng 200 ở `45_sampling_plan.csv` cho bốn camera, mỗi camera có normal và hard slice. “Gold set” ở đây là **kế hoạch tạo** reference sau kiểm chứng, không phải teaching reference ADASIND hoặc nhãn bạn vừa vẽ. Nếu cần, dùng `notebooks/day11-svm360-colab.ipynb` để thử tổng phân bổ; notebook không làm thay phần lý do.
 
 | camera_id | Hard case cần chọn | Vì sao dễ sai | Annotation space / calibration cần giữ | Cách review trước khi gọi là gold |
 |---|---|---|---|---|
-| front | TODO | TODO | TODO | TODO |
-| rear | TODO | TODO | TODO | TODO |
-| left | TODO | TODO | TODO | TODO |
-| right | TODO | TODO | TODO | TODO |
+| front | Tình huống ngược sáng mạnh (mặt trời/đèn pha), vật thể cắt ngang ở vùng seam góc front-left / front-right, méo biên fisheye. | Độ chói cao làm mờ biên vật thể; méo fisheye khiến bounding box dễ bị lệch rộng hoặc thiếu góc; vật vùng seam dễ gây bối rối giữa vẽ/không vẽ. | Khung hình 2D gốc của camera front, các điểm cực biên vật thể (visible extent), giữ nguyên tham số intrinsic/extrinsic calibration gốc. | Dual-review độc lập bởi 2 Senior Annotator; kiểm tra đối chiếu bám sát viền (tightness check); xác nhận vùng seam đạt quy chuẩn cross-camera. |
+| rear | Vật thể ở điểm mù sát đuôi xe, ánh sáng yếu ban đêm bị lóa bởi đèn hậu/đèn pha xe sau, góc seam rear-left / rear-right. | Khoảng cách quá gần gây biến dạng góc nhìn cực đại; bóng tối mờ nhòe dễ bỏ sót vật thể nhỏ (người đi bộ/chướng ngại vật thấp). | Khung hình 2D gốc camera rear, mốc timestamp đồng bộ, giữ nguyên góc quay & thông số hiệu chỉnh camera rear. | Kiểm tra lớp nhãn 2D dưới độ phóng đại (zoom in); kiểm soát chất lượng nhãn trong điều kiện thiếu sáng; cross-check với camera hông. |
+| left | Vật thể áp sát hông xe (khoảng cách < 0.5m), méo hình học fisheye độ méo cao ở viền trái, vật thể di chuyển từ hông ra góc front/rear. | Hiện tượng cong dãn hình ảnh (fisheye distortion) khiến việc vẽ box tight rất khó; dễ gán nhãn nhầm hình dáng thực thể. | Khung hình 2D gốc camera left, đường cong fisheye tự nhiên của vật thể, bảng ma trận căn chỉnh hông xe. | Review tính liên tục của TrackID qua chuỗi frame; kiểm tra độ vừa vặn của box ở các vùng méo lớn. |
+| right | Chướng ngại vật thấp sát vỉa hè/lề đường, tạt đầu góc phải, vật thể ở vùng seam góc right-front / right-rear. | Vật thể bị che khuất một phần bởi lề đường/xe khác; chênh lệch độ tương phản ánh sáng giữa lề và mặt đường. | Khung hình 2D gốc camera right, giữ vạch ranh giới visible boundary chuẩn, thông số góc mở camera right. | Review 100% bởi Lead Quality Reviewer; kiểm tra tính nhất quán giữa nhãn object và nhãn free-space. |
 
-- Khi nào cần refresh gold set (đổi camera, calibration hoặc rule): TODO
-- Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box: TODO
-- Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera: TODO
+- **Khi nào cần refresh gold set (đổi camera, calibration hoặc rule):** Khi có sự thay đổi về phần cứng/vị trí lắp đặt camera (extrinsic calibration thay đổi), thay đổi thông số ống kính/độ phân giải (intrinsic calibration), khi cập nhật phiên bản Guideline gán nhãn mới (ví dụ: thay đổi định nghĩa Tight Box hoặc rule gán nhãn Seam), hoặc khi phát hiện phân bố dữ liệu thực tế (data drift) lệch đáng kể so với tập 200 frame ban đầu.
+- **Một ca seam/cross-camera cần policy và evidence trước khi ghép hai box:** Trường hợp một chiếc xe máy xuất hiện đồng thời ở góc nhìn của `front` camera và `left` camera tại khu vực giáp ranh (seam). Trước khi quyết định ghép 2 box này thành 1 vật thể duy nhất trên không gian BEV/Tracking, cần có bằng chứng đồng bộ chính xác về mặt thời gian (timestamp matching), ma trận căn chỉnh không gian (extrinsic/intrinsic calibration evidence), và policy quy định rõ: *Ở góc nhìn 2D gốc giữ nguyên 2 box độc lập; việc ghép ID chỉ được thực hiện ở tầng BEV Fusion dựa trên khoảng cách Euclidean 3D sau khi chiếu.*
+- **Vì sao peer agreement hoặc quality report trên ảnh một camera chưa chứng minh gold set đúng cho cả bốn camera:** Vì peer agreement trên 1 camera chỉ đánh giá được tính nhất quán nội bộ (intra-camera consistency) về mặt thị giác 2D cục bộ. Nó hoàn toàn bỏ qua các lỗi hệ thống đa camera (inter-camera errors) như: lệch đồng bộ thời gian (timestamp desync), lỗi xung đột nhãn/trùng lặp tại vùng giáp ranh (seam ambiguity), sự mất liên tục của TrackID khi vật thể di chuyển qua các camera khác nhau, và các sai lệch do chuyển đổi phối cảnh không gian 3D/BEV (calibration errors).

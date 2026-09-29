@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,25,medium,"Lấy mẫu đều theo mốc thời gian trong điều kiện đủ sáng, đường thẳng và mật độ giao thông trung bình để đại diện cảnh thông thường."
+front,hard,25,high,"Ưu tiên ngược sáng/đèn pha, vật thể cắt ngang đột ngột và vùng seam với left/right vì dễ bỏ sót hoặc tạo box trùng."
+rear,normal,25,medium,"Lấy mẫu tình huống quan sát phía sau tiêu chuẩn với khoảng cách xe phía sau ổn định để làm nhóm nền."
+rear,hard,25,high,"Ưu tiên vật thể sát đuôi xe, điểm mù, ánh sáng ban đêm và seam với left/right vì dễ thiếu object hoặc sai tracking."
+left,normal,25,medium,"Lấy mẫu hành trình song song lề hoặc dãy xe bên trái ở vận tốc ổn định để đại diện góc nhìn thông thường."
+left,hard,25,high,"Ưu tiên vật thể áp sát thân xe, méo fisheye ở biên và chướng ngại vật khuất bóng vì khó giữ box tight."
+right,normal,25,medium,"Lấy mẫu hành trình song song lề hoặc dãy xe bên phải ở vận tốc ổn định để làm nhóm nền."
+right,hard,25,high,"Ưu tiên vật thể tạt đầu, seam với front/rear và vạch ô đỗ mờ hoặc bị khuất vì dễ sai boundary và free-space."
