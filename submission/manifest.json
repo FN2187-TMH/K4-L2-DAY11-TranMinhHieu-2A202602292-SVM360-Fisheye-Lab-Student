@@ -130,29 +130,50 @@
       "sha256": "4c4683bd275ca8f9f18f31cb1bfb3847da4504c06664280f32c08fb6c051e6c2"
     },
     {
+      "file": "rework/annotations-v2.xml",
+      "lines": 372,
+      "sha256": "bee3e7e1c7399760303b1b8a4d31a0f90cb635afc0bd5db2e420083724ee8a38"
+    },
+    {
+      "file": "rework/lock2.txt",
+      "lines": 9,
+      "sha256": "9ef3ef2be256184dcb9be61556bd12d54634d3c2048368e0ae73623841f43a86",
+      "locked_at": "2026-09-29T16:30:28+07:00"
+    },
+    {
+      "file": "rework/delta.md",
+      "lines": 18,
+      "sha256": "03b58a6c580d9bb23975b3c71e6317ad94c549d6e70a3618dc733f83d11a3cae"
+    },
+    {
       "file": "findings.csv",
       "lines": 37,
       "sha256": "263f13c2140dbfef4e35759bec9bb453fcf8b0b11c31378dfc157d02cc23211e"
     },
     {
+      "file": "10_error_card.md",
+      "lines": 33,
+      "sha256": "49f25ee6e613055b86c8bb4868eeed0c5548c2314d39e7d81136ab0514b850c9"
+    },
+    {
       "file": "20_guideline_patch.md",
       "lines": 7,
-      "sha256": "3183157395ffa827ed7e875fa3610e82e6cd8a3ceabd322268aad776c82a0d76"
+      "sha256": "83cb2dde6711a7cb40bb9e39a9e64b9b41e8fb583dab4bb4c22210196c73199f"
     },
     {
       "file": "30_escalation_ticket.md",
       "lines": 9,
-      "sha256": "bd7c145a4decbe64c31ab9145f53a364180b766d77ef495742dcd9fec4afb649"
+      "sha256": "8f439aa76fd1320aac086b42eece2453513334aadac3ad392bbc0620dc7bc32b"
     },
     {
       "file": "40_decision_log.csv",
-      "lines": 1,
-      "sha256": "b08969b09d2c53145049c164142f6d8790d023a7e35a3c3e47eb6836408869f5"
+      "lines": 5,
+      "sha256": "8eed95c11f3a00ee9c531719c17621a54cc2021962ebc6e9d0f24548cf4ad686"
     },
     {
       "file": "45_review_plan.md",
       "lines": 16,
-      "sha256": "f64f959fe1c264e1afb05f1d0cea7326a745e09c7f53bbbef0661b2b6d0bd016"
+      "sha256": "3e49d2dc0fdfe57d2251fecf4f1ad475d8889092df9bfc7d82ee6a83cb34ce44"
     },
     {
       "file": "45_sampling_plan.csv",
@@ -167,19 +188,8 @@
     {
       "file": "50_exit_ticket.md",
       "lines": 11,
-      "sha256": "a83b35348a01fda898a9554d9b21661e400e04cd4a2e079c058460f2e9087f9e"
+      "sha256": "96dc58fed6adfd1bd9daf6b6258ba0c8a9d4a2829c80b48a840586da54446080"
     }
   ],
-  "failed_gates": [
-    "decision log cần ≥4 entry và ≥1 escalated",
-    "Thiếu file rework/annotations-v2.xml",
-    "Thiếu file rework/lock2.txt",
-    "Thiếu file rework/delta.md",
-    "Thiếu file 10_error_card.md (chạy python3 lab11.py card)",
-    "Còn TODO trong 20_guideline_patch.md",
-    "Còn TODO trong 30_escalation_ticket.md",
-    "Còn TODO trong 45_review_plan.md",
-    "Còn TODO trong 50_exit_ticket.md",
-    "screenshots cần ≥2 ảnh"
-  ]
+  "failed_gates": []
 }

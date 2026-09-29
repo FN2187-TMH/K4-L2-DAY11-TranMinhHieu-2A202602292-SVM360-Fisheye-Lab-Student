@@ -1,1 +1,5 @@
 id,date,question,decision,rationale,status
+DL-001,2026-09-29,"adasind_167700.jpg L7 là object thật hay box thừa?","Xóa L7 và giữ L10 ThreeWheeler.","L7 là finding L_only/SPURIOUS; local quality và compare không có object reference tương ứng, trong khi L10 bao object chính.",rework_done
+DL-002,2026-09-29,"adasind_167700.jpg L8 nên giữ Truck hay đổi class?","Đổi L8 từ Truck thành Car.","Finding L8+R4 là WRONG_CLASS; reference R4 và model M4 cùng nhận vùng này là Car.",rework_done
+DL-003,2026-09-29,"Các M_only trong B3 có nên thêm vào annotation không?","Không thêm ngay; escalate cho ai_team để kiểm tra model false positive theo ảnh.","M_only không có object tương ứng trong learner/reference; chưa đủ bằng chứng để biến dự đoán model thành nhãn chuẩn.",escalated
+DL-004,2026-09-29,"adasind_212280.jpg L4/R3 khác Car và Bus, bên nào đúng?","Giữ ca ở trạng thái cần QA xác minh trước khi gọi là nhãn cuối.","Đây là xung đột label với IoU 0.828; ảnh và rule cần được review độc lập, không suy luận chỉ từ teaching reference.",pending_qa
